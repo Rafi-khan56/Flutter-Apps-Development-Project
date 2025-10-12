@@ -21,15 +21,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('button class')),
-      body: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.red),
+      appBar: AppBar(
+        title: const Text('Card class'),
+        backgroundColor: Colors.blueAccent,
+        toolbarHeight: 50,
+      ),
+      body: Center(
+        child: Card(
+          shadowColor: Colors.black87,
+          elevation: 20,
+          child: Text("hi rafi khan"),
         ),
-        child: Text("press Button", style: TextStyle(color: Colors.black)),
-        onPressed: () {
-          print("you pressed the button");
-        },
       ),
     );
   }

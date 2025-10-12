@@ -21,16 +21,25 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Image class'),
-        backgroundColor: Colors.blueAccent,
-        toolbarHeight: 50,
-      ),
+      appBar: AppBar(title: const Text('Circle Avalatar class')),
       body: Center(
-        child: SizedBox(
-          height: 300,
-          width: 300,
-          child: Image.asset("assets/images/download.png"),
+        child: CircleAvatar(
+          radius: 50,
+          backgroundColor: Colors.green,
+          child: SizedBox(
+            height: 70,
+            width: 50,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: Image.asset('assets/Images/download.png'),
+                ),
+                Text("name"),
+              ],
+            ),
+          ),
         ),
       ),
     );
