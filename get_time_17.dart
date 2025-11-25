@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:myproject/Flutter-Apps-Development-Project/ink_well_3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,14 +17,19 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class _HomePageState extends State<HomePage> {
+  DateTime time = DateTime.now();
+
+  void updateTime() {
+    setState(() {
+      time = DateTime.now();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    var time = DateTime.now();
     return Scaffold(
-      appBar: AppBar(title: Text("time get Class"), centerTitle: true),
+      appBar: AppBar(title: const Text("Time Getter"), centerTitle: true),
       body: Center(
         child: Container(
           height: 300,
@@ -35,11 +38,16 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Get Current Time ${time.day}",
-                style: TextStyle(fontSize: 25),
+                "Current Time: ${time.hour}:${time.minute}:${time.second}",
+                style: const TextStyle(fontSize: 25),
               ),
 
-              ElevatedButton(onPressed: () {}, child: Text("Uodate Time")),
+              const SizedBox(height: 20),
+
+              ElevatedButton(
+                onPressed: updateTime,
+                child: const Text("Update Time"),
+              ),
             ],
           ),
         ),
